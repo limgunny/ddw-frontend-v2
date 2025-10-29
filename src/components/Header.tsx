@@ -9,12 +9,12 @@ export default function Header({
   setSidebarOpen: (isOpen: boolean) => void
 }) {
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-slate-800 bg-slate-950/80 px-4 backdrop-blur-sm sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-gray-700 bg-gray-900/80 px-4 backdrop-blur-sm sm:px-6 lg:px-8">
       {/* Mobile menu button */}
       <div className="md:hidden">
         <button
           type="button"
-          className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-400"
+          className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
           onClick={() => setSidebarOpen(true)}
         >
           <span className="sr-only">Open sidebar</span>
