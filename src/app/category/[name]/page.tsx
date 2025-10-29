@@ -13,6 +13,7 @@ interface Post {
   createdAt: string
   views: number
   likes: number
+  commentCount: number
 }
 
 export default function CategoryPage() {
