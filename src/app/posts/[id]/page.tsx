@@ -129,13 +129,13 @@ export default function PostPage() {
         </div>
       )}
       <div
-        className={`bg-gray-800 shadow-lg overflow-hidden ${
+        className={`bg-slate-800 shadow-lg overflow-hidden ${
           post.isViolation ? 'rounded-b-xl' : 'rounded-xl'
         }`}
       >
         <div className="p-6">
           <h1 className="text-3xl font-bold text-white mb-2">{post.title}</h1>
-          <div className="flex justify-between items-center text-sm text-gray-400 mb-4">
+          <div className="flex justify-between items-center text-sm text-slate-400 mb-4">
             <span>
               by <span className="hover:underline">{post.authorEmail}</span>
             </span>
@@ -151,7 +151,7 @@ export default function PostPage() {
         />
         <div className="p-6">
           <div
-            className="text-gray-300 leading-relaxed break-all mb-8"
+            className="text-slate-300 leading-relaxed break-all mb-8"
             dangerouslySetInnerHTML={{
               __html: post.content.replace(/\n/g, '<br />'),
             }}
@@ -163,7 +163,7 @@ export default function PostPage() {
               className={`flex flex-col items-center gap-2 p-4 rounded-lg transition-colors ${
                 isLiked
                   ? 'text-purple-400'
-                  : 'text-gray-400 hover:bg-gray-700/50 hover:text-white'
+                  : 'text-slate-400 hover:bg-slate-700/50 hover:text-white'
               }`}
             >
               <HandThumbUpIcon className="w-10 h-10" />
@@ -171,8 +171,8 @@ export default function PostPage() {
             </button>
           </div>
 
-          <div className="flex items-center justify-between mt-6 pt-6 border-t border-gray-700">
-            <div className="flex items-center gap-4 text-gray-400">
+          <div className="flex items-center justify-between mt-6 pt-6 border-t border-slate-700">
+            <div className="flex items-center gap-4 text-slate-400">
               <span className="flex items-center gap-1.5">
                 <EyeIcon className="w-5 h-5" />
                 {post.views}

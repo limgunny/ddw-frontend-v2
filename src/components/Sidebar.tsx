@@ -127,7 +127,7 @@ export default function Sidebar({
       {/* Sidebar content */}
       <div
         className={classNames(
-          'flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 w-64 border-r border-gray-700',
+          'flex grow flex-col gap-y-5 overflow-y-auto bg-slate-950 px-6 w-64 border-r border-slate-800',
           'fixed top-0 bottom-0 z-50 transform transition-transform ease-in-out duration-300',
           isSidebarOpen ? 'block' : 'hidden', // Control visibility on mobile
           'md:flex', // Always flex on medium screens and up
@@ -154,8 +154,8 @@ export default function Sidebar({
                       href={item.href}
                       className={classNames(
                         pathname === item.href
-                          ? 'bg-gray-800 text-white'
-                          : 'text-gray-400 hover:text-white hover:bg-gray-800',
+                          ? 'bg-slate-800 text-white'
+                          : 'text-slate-400 hover:text-white hover:bg-slate-800',
                         'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold relative transition-colors duration-200'
                       )}
                     >
@@ -181,8 +181,8 @@ export default function Sidebar({
                         href={item.href}
                         className={classNames(
                           pathname === item.href
-                            ? 'bg-gray-800 text-white'
-                            : 'text-gray-400 hover:text-white hover:bg-gray-800',
+                            ? 'bg-slate-800 text-white'
+                            : 'text-slate-400 hover:text-white hover:bg-slate-800',
                           'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold relative transition-colors duration-200'
                         )}
                       >
@@ -201,7 +201,7 @@ export default function Sidebar({
               </li>
             )}
             <li>
-              <div className="text-xs font-semibold leading-6 text-gray-400">
+              <div className="text-xs font-semibold leading-6 text-slate-400">
                 카테고리
               </div>
               <ul role="list" className="-mx-2 mt-2 space-y-1">
@@ -211,8 +211,8 @@ export default function Sidebar({
                       href={item.href}
                       className={classNames(
                         decodeURIComponent(pathname) === item.href
-                          ? 'bg-gray-800 text-white'
-                          : 'text-gray-400 hover:text-white hover:bg-gray-800',
+                          ? 'bg-slate-800 text-white'
+                          : 'text-slate-400 hover:text-white hover:bg-slate-800',
                         'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold relative transition-colors duration-200'
                       )}
                     >
@@ -231,12 +231,12 @@ export default function Sidebar({
             </li>
             <li className="mt-auto" ref={menuRef}>
               {isLoading ? (
-                <div className="text-gray-400 text-sm p-2">로딩 중...</div>
+                <div className="text-slate-400 text-sm p-2">로딩 중...</div>
               ) : user ? (
                 <div className="group relative">
                   <button
                     onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                    className="w-full flex items-center justify-between gap-x-3 p-2 text-sm font-semibold leading-6 text-gray-300 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full flex items-center justify-between gap-x-3 p-2 text-sm font-semibold leading-6 text-slate-300 rounded-md hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-purple-500"
                   >
                     <UserCircleIcon className="h-6 w-6" />
                     <span className="truncate">{user.email}</span>
@@ -248,7 +248,7 @@ export default function Sidebar({
                   </button>
 
                   <div
-                    className={`absolute bottom-full mb-2 w-full bg-gray-800 rounded-md shadow-lg py-1 ring-1 ring-black/5 z-10 transition-all duration-200 ease-in-out ${
+                    className={`absolute bottom-full mb-2 w-full bg-slate-800 rounded-md shadow-lg py-1 ring-1 ring-black/5 z-10 transition-all duration-200 ease-in-out ${
                       isUserMenuOpen
                         ? 'opacity-100 visible translate-y-0'
                         : 'opacity-0 invisible -translate-y-2'
@@ -257,7 +257,7 @@ export default function Sidebar({
                     {user.role === 'admin' && (
                       <Link
                         href="/admin"
-                        className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-slate-300 hover:bg-slate-700"
                       >
                         <Cog6ToothIcon className="h-5 w-5" />
                         관리자
@@ -266,7 +266,7 @@ export default function Sidebar({
                     {user && (
                       <button
                         onClick={handleLogout}
-                        className="w-full text-left flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
+                        className="w-full text-left flex items-center gap-3 px-4 py-2 text-sm text-slate-300 hover:bg-slate-700"
                       >
                         <ArrowRightOnRectangleIcon className="h-5 w-5" />
                         로그아웃
@@ -274,13 +274,13 @@ export default function Sidebar({
                     )}
                     <Link
                       href="/my-posts"
-                      className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-700"
+                      className="block w-full text-left px-4 py-2 text-sm text-slate-300 hover:bg-slate-700"
                     >
                       내 게시물
                     </Link>
                     <button
                       onClick={handleWithdraw}
-                      className="w-full text-left block px-4 py-2 text-sm text-red-400 hover:bg-red-900/20"
+                      className="w-full text-left block px-4 py-2 text-sm text-red-400 hover:bg-slate-700"
                     >
                       회원탈퇴
                     </button>
@@ -290,14 +290,14 @@ export default function Sidebar({
                 <div className="space-y-1">
                   <Link
                     href="/login"
-                    className="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-gray-400 hover:text-white hover:bg-gray-800"
+                    className="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-400 hover:text-white hover:bg-slate-800"
                   >
                     <ArrowLeftOnRectangleIcon className="h-6 w-6 shrink-0" />
                     로그인
                   </Link>
                   <Link
                     href="/signup"
-                    className="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-gray-400 hover:text-white hover:bg-gray-800"
+                    className="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-400 hover:text-white hover:bg-slate-800"
                   >
                     <UserPlusIcon className="h-6 w-6 shrink-0" />
                     회원가입
