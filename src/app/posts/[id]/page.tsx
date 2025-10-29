@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation'
 import { useAuth } from '@/contexts/AuthContext'
 import { EyeIcon, HandThumbUpIcon } from '@heroicons/react/24/solid'
 import CommentSection from '@/components/CommentSection'
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 interface Post {
   _id: string
@@ -112,15 +113,19 @@ export default function PostPage() {
   return (
     <div className="container mx-auto max-w-4xl p-4">
       {post.isViolation && (
-        <div className="bg-red-900/70 p-4 text-center text-white rounded-t-xl">
-          <p className="font-bold">저작권 위반 경고</p>
-          <p className="text-sm">
-            이 게시물은 원본 저작자의 허락 없이 업로드된 것으로 의심됩니다. 원본
-            저작자:{' '}
-            <span className="font-bold">
-              {post.originalOwnerEmail || '알 수 없음'}
-            </span>
-          </p>
+        <div className="flex items-start gap-4 rounded-t-xl border-l-4 border-red-500 bg-red-900/20 p-4 text-red-200">
+          <ExclamationTriangleIcon className="h-6 w-6 flex-shrink-0 text-red-400" />
+          <div className="flex-1">
+            <p className="font-bold text-red-300">저작권 위반 경고</p>
+            <p className="text-sm mt-1">
+              이 게시물은 원본 저작자의 허락 없이 업로드된 것으로 의심됩니다.{' '}
+              <br />
+              원본 저작자 이메일:{' '}
+              <span className="font-semibold text-red-100">
+                {post.originalOwnerEmail || '알 수 없음'}
+              </span>
+            </p>
+          </div>
         </div>
       )}
       <div
@@ -173,8 +178,10 @@ export default function PostPage() {
                 {post.views}
               </span>
             </div>
+            {/* 관리자이거나, 또는 저작권 위반 게시물이 아니면서 작성자일 경우에만 삭제 버튼 표시 */}
             {user &&
-              (user.role === 'admin' || user.email === post.authorEmail) && (
+              (user.role === 'admin' ||
+                (!post.isViolation && user.email === post.authorEmail)) && (
                 <button
                   onClick={handleDelete}
                   className="text-red-400 hover:text-red-300 hover:underline text-sm font-semibold transition-colors"
